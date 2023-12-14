@@ -10,9 +10,12 @@ function bs_wib_add_post_class($classes) {
 	$options = get_option( 'wp_image_borders_options' );
 
 	// if the checkbox is not empty and is checked, add the wp-image-borders class
-	if ( 1 == $options['bs_wib_post_checkbox'] ) {
-		$classes[] = "wp-image-borders";
-	}
+       if ( isset($options['bs_wib_post_checkbox']) ) {
+             if ( 1==$options['bs_wib_post_checkbox'])  {
+		 $classes[] = "wp-image-borders";
+            }
+
+       }
 	return $classes;
 }
 add_filter('post_class', 'bs_wib_add_post_class');
